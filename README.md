@@ -10,6 +10,15 @@ sudo apt install pipewire pipewire-alsa pipewire-pulse wireplumber avahi-daemon 
 ```
 - Optionally: use ~/.config/wireplumber.. to rename sinks
 - Use ~/.config/pipewire.conf to add a combine sink to simultanously output to all alsa sinks
+- Make the new combined sink the default sink
+```sh
+wpctl status
+# Seach for the new sink and remember the ID
+wpctl set-default <ID>
+# Now might also be a good moment to increase the volume of all outputs to 1.
+# Get the IDs from above and run the following command for each output.
+wpctl set-volume <ID> 1
+```
 - Install rustup (needed for librespot)
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
