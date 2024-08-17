@@ -16,8 +16,15 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 - Install librespot for spotify
 ```sh
+# First we need to increase the swap size
+sudo dphys-swapfile swapoff
+nano /etc/dphys-swapfile
+# Change CONF_SWAPSIZE to something like 2048
+sudo dphys-swapfile setup
+sudo dphys-swapfile swapon
 git clone https://github.com/librespot-org/librespot
 cd librespot
+# The next command builds librespot and can take up to 1 hour
 cargo build --release librespot --no-default-features --features "pulseaudio-backend"
 # Add the service file from .config/systemd/user/librespot and adapt the path
 systemctl --user enable librespot
