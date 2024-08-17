@@ -1,0 +1,6 @@
+[submodule "librespot"]
+	path = librespot
+	url = https://github.com/librespot-org/librespot
+[submodule "shairport-sync"]
+	path = shairport-sync
+	url = https://github.com/mikebrady/shairport-sync

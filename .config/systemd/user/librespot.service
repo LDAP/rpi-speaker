@@ -1,0 +1,13 @@
+[Unit]
+Description=Librespot - Spotify Connect Client
+After=sound.target
+#Requires=avahi-daemon.service
+#After=avahi-daemon.service
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+ExecStart=/home/lucas/librespot/target/release/librespot -n "Lucas RPi" -f F32 -b 320
+
+[Install]
+WantedBy=default.target
