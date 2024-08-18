@@ -51,5 +51,11 @@ sudo make install
 # Add the service file from .config/systemd/user/shairport and adapt the path
 systemctl --user enable shairport
 ```
-- Add `bt-pair-agent/bt-pair-agent.service` and adapt the path. This autostarts a bluetooth handler that accepts all connections.
-- Run `sudo sed -i 's/#JustWorksRepairing.*/JustWorksRepairing = always/' /etc/bluetooth/main.conf`
+- Install bluez-tools
+```sh
+sudo apt install bluez-tools
+```
+- Autorun (for example with systemd) `bt-agent -c NoInputNoOutput` to accept all pairing requirests
+- Edit `/etc/bluetooth/main.conf`:
+    - JustWorksRepairing = always
+    - DiscoverableTimeout = 0
