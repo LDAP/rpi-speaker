@@ -1,9 +1,12 @@
 [Unit]
-Description=Bluetooth speaker agent
+Description=Bluetooth Pairing agent
+StartLimitIntervalSec=500
+StartLimitBurst=5
 
 [Service]
-Environment=PYTHONUNBUFFERED=1
-ExecStart=python bt-pair-agent/bt-pair-agent.py
+ExecStart=bt-agent -c NoInputNoOutput -p bt-pin
+Restart=on-failure
+RestartSec=5s
 
 [Install]
 WantedBy=default.target

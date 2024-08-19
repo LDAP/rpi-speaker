@@ -5,9 +5,13 @@ After=sound.target
 #After=avahi-daemon.service
 Wants=network-online.target
 After=network.target network-online.target
+StartLimitIntervalSec=500
+StartLimitBurst=5
 
 [Service]
 ExecStart=/home/lucas/librespot/target/release/librespot -n "Lucas RPi" -f F32 -b 320
+Restart=on-failure
+RestartSec=5s
 
 [Install]
 WantedBy=default.target

@@ -5,9 +5,13 @@ After=sound.target
 #After=avahi-daemon.service
 Wants=network-online.target
 After=network.target network-online.target
+StartLimitIntervalSec=500
+StartLimitBurst=5
 
 [Service]
 ExecStart=/usr/local/bin/shairport-sync --log-to-syslog
+Restart=on-failure
+RestartSec=5s
 
 [Install]
 WantedBy=default.target

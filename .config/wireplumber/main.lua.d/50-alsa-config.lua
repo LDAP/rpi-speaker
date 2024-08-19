@@ -129,6 +129,7 @@ alsa_monitor.rules = {
     },
     apply_properties = {
       ["node.description"] = "3,5mm Jack",
+      ["api.alsa.headroom"] = 1024,
     },
   },
   {
