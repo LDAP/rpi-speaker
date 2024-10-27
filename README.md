@@ -34,7 +34,7 @@ sudo dphys-swapfile swapon
 git clone https://github.com/librespot-org/librespot
 cd librespot
 # The next command builds librespot and can take up to 1 hour
-cargo build --release librespot --no-default-features --features "pulseaudio-backend"
+cargo build --release --no-default-features --features "pulseaudio-backend"
 # Add the service file from .config/systemd/user/librespot and adapt the path
 systemctl --user enable librespot
 ```
